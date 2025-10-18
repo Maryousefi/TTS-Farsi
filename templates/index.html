@@ -1,0 +1,36 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Persian TTS</title>
+    <style>
+      body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto, "Noto Sans", "Helvetica Neue", Arial; max-width: 720px; margin: 24px auto; padding: 0 16px; }
+      h1 { font-size: 22px; margin-bottom: 6px; }
+      label { display:block; margin-top: 12px; font-weight: 600; }
+      textarea { width: 100%; height: 160px; padding: 8px; font-size: 16px; direction: rtl; }
+      .controls { margin-top: 12px; display:flex; gap:8px; align-items:center; }
+      button { padding: 8px 12px; border-radius: 6px; border: none; cursor:pointer; background: #0b63d6; color: white; }
+      .note { margin-top: 12px; color: #444; font-size: 14px; }
+      .small { font-size: 13px; color: #666; margin-top: 6px; }
+    </style>
+  </head>
+  <body>
+    <h1>Persian TTS</h1>
+    <p class="small">Device: {{ device }}</p>
+    <form method="post" action="/synthesize">
+      <label for="text">متن فارسی برای تبدیل به صدا</label>
+      <textarea id="text" name="form_text" placeholder="متن خود را اینجا بنویسید...">سلام، این یک تست از مدل جدید است</textarea>
+
+      <div class="controls">
+        <label style="display:inline-block; margin:0;">
+          <input type="checkbox" name="apply_phoneme_enhancer" value="true"> بهینه‌سازی فونم
+        </label>
+        <button type="submit">تولید فایل WAV</button>
+      </div>
+    </form>
+
+    <p class="note">نکته: مدل معمولاً برای سرعت و کیفیت خوب به یک GPU مناسب نیاز دارد. اگر سرور شما GPU ندارد، تولید صدا کند خواهد بود یا ممکن است حافظه کامل شود.</p>
+  </body>
+</html>
