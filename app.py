@@ -1,4 +1,3 @@
-# app.py
 """
 FastAPI app for Persian TTS using facebook/mms-tts-fas (VITS)
 This file consolidates the notebook's cells:
